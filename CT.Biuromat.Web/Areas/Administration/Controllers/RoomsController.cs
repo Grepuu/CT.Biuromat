@@ -24,7 +24,8 @@ namespace CT.Biuromat.Web.Areas.Administration.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View(new RoomsCreateVm());
+            var model = _roomsService.PrepareVmForCreate();
+            return View(model);
         }
         
         [HttpPost] 

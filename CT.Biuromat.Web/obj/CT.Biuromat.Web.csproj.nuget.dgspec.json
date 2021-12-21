@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitDesk\\CT.Biuromat\\CT.Biuromat.Web\\CT.Biuromat.Web.csproj": {}
+    "C:\\Users\\Asus\\RiderProjects\\CT.Biuromat\\CT.Biuromat.Web\\CT.Biuromat.Web.csproj": {}
   },
   "projects": {
-    "D:\\GitDesk\\CT.Biuromat\\CT.Biuromat.Web\\CT.Biuromat.Web.csproj": {
+    "C:\\Users\\Asus\\RiderProjects\\CT.Biuromat\\CT.Biuromat.Web\\CT.Biuromat.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitDesk\\CT.Biuromat\\CT.Biuromat.Web\\CT.Biuromat.Web.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\RiderProjects\\CT.Biuromat\\CT.Biuromat.Web\\CT.Biuromat.Web.csproj",
         "projectName": "CT.Biuromat.Web",
-        "projectPath": "D:\\GitDesk\\CT.Biuromat\\CT.Biuromat.Web\\CT.Biuromat.Web.csproj",
-        "packagesPath": "C:\\Users\\mateu\\.nuget\\packages\\",
-        "outputPath": "D:\\GitDesk\\CT.Biuromat\\CT.Biuromat.Web\\obj\\",
+        "projectPath": "C:\\Users\\Asus\\RiderProjects\\CT.Biuromat\\CT.Biuromat.Web\\CT.Biuromat.Web.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asus\\RiderProjects\\CT.Biuromat\\CT.Biuromat.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mateu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -91,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

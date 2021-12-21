@@ -43,3 +43,58 @@
     @Model.Building.UpdatedAt
 </p>
 
+<h2>
+    Lista pokoi
+</h2>
+
+<a asp-action="Create" asp-controller="Rooms">
+    dodaj nowy pokój
+</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Nazwa
+        </th>
+        <th>
+            Kod Dostępu
+        </th>
+        <th>
+            Data utworzenia
+        </th>
+        <th>
+            Ostatnia zmiania
+        </th>
+        <th>
+            
+        </th>
+    </tr>
+    @foreach (var room in Model.Rooms)
+    {
+        <tr>
+            <td>
+                @room.Id
+            </td>
+            <th>
+                @room.Name
+            </th>
+            <td>
+                @room.AccessCode
+            </td>
+            <td>
+                @room.CreatedAt
+            </td>
+            <td>
+                @room.UpdatedAt
+            </td>
+            <td>
+                <a asp-action="Details" asp-controller="Rooms" asp-route-id="@room.Id">
+                    otwórz
+                </a>
+            </td>
+        </tr>
+    }
+</table>

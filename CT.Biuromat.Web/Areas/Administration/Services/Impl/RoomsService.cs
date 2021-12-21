@@ -41,10 +41,24 @@ namespace CT.Biuromat.Web.Areas.Administration.Services.Impl
         public RoomsEditVm PrepareVmForEdit(int id)
         {
             var room = GetOne(id);
+            var buildings = GetBuildings();
             var model = new RoomsEditVm()
             {
                 Name = room.Name,
-                AccessCode = room.AccessCode
+                AccessCode = room.AccessCode,
+                BuildingId = room.BuildingId,
+                Buildings = buildings
+            };
+
+            return model;
+        }
+
+        public RoomsCreateVm PrepareVmForCreate()
+        {
+            var buildings = GetBuildings();
+            var model = new RoomsCreateVm()
+            {
+                Buildings = buildings
             };
 
             return model;
@@ -53,6 +67,14 @@ namespace CT.Biuromat.Web.Areas.Administration.Services.Impl
         public ICollection<RoomEntity> GetAll()
         {
             var list = _dbContext.Rooms.Where(n => n.IsActive).ToList();
+            return list;
+        }
+
+        public ICollection<RoomEntity> GetAllByBuildingId(int buildingId)
+        {
+            var list = _dbContext.Rooms.Where(n => n.IsActive)
+                .Where(n => n.BuildingId == buildingId)
+                .ToList();
             return list;
         }
 
@@ -71,6 +93,7 @@ namespace CT.Biuromat.Web.Areas.Administration.Services.Impl
             dbModel.IsActive = true;
             dbModel.Name = model.Name;
             dbModel.AccessCode = model.AccessCode;
+            dbModel.BuildingId = model.BuildingId;
 
             _dbContext.Rooms.Add(dbModel);
             _dbContext.SaveChanges();
@@ -83,6 +106,7 @@ namespace CT.Biuromat.Web.Areas.Administration.Services.Impl
             dbModel.UpdatedAt = DateTime.UtcNow;
             dbModel.Name = model.Name;
             dbModel.AccessCode = model.AccessCode;
+            dbModel.BuildingId = model.BuildingId;
 
             _dbContext.Rooms.Update(dbModel);
             _dbContext.SaveChanges();
@@ -105,6 +129,11 @@ namespace CT.Biuromat.Web.Areas.Administration.Services.Impl
 
             _dbContext.Rooms.Remove(dbModel);
             _dbContext.SaveChanges();
+        }
+
+        private ICollection<BuildingEntity> GetBuildings()
+        {
+            return _dbContext.Buildings.Where(n => n.IsActive).ToList();
         }
     }
 }

@@ -24,6 +24,19 @@
         </label>
         <input class="form-control" asp-for="AccessCode"/>
     </div>
+    <div class="form-group">
+        <label asp-for="BuildingId">
+            Przypisany budynek
+        </label>
+        <select class="form-control" asp-for="BuildingId">
+            @foreach (var item in Model.Buildings)
+            {
+                <option value="@item.Id">
+                    @item.Name
+                </option>
+            }
+        </select>
+    </div>
     <button type="submit">
         zapisz zmiany
     </button>

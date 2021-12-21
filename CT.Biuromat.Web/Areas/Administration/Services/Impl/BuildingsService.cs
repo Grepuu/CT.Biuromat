@@ -10,10 +10,12 @@ namespace CT.Biuromat.Web.Areas.Administration.Services.Impl
     public class BuildingsService : IBuildingsService
     {
         private readonly ApplicationDbContext _dbContext;
+        private readonly IRoomsService _roomsService;
         
-        public BuildingsService(ApplicationDbContext dbContext)
+        public BuildingsService(ApplicationDbContext dbContext, IRoomsService roomsService)
         {
             _dbContext = dbContext;
+            _roomsService = roomsService;
         }
 
         public BuildingsIndexVm PrepareVmForIndex()
@@ -30,9 +32,11 @@ namespace CT.Biuromat.Web.Areas.Administration.Services.Impl
         public BuildingsDetailsVm PrepareVmForDetails(int id)
         {
             var building = GetOne(id);
+            var rooms = _roomsService.GetAllByBuildingId(id);
             var model = new BuildingsDetailsVm()
             {
-                Building = building
+                Building = building,
+                Rooms = rooms
             };
             
             return model;

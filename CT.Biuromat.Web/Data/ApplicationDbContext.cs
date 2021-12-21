@@ -14,5 +14,15 @@ namespace CT.Biuromat.Web.Data
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<BuildingEntity>()
+                .HasMany(n => n.Rooms)
+                .WithOne(n => n.Building)
+                .HasForeignKey(n => n.BuildingId);
+        }
     }
 }

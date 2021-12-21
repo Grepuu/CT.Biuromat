@@ -10,9 +10,11 @@ namespace CT.Biuromat.Web.Areas.Administration.Services
         RoomsIndexVm PrepareVmForIndex();
         RoomsDetailsVm PrepareVmForDetails(int id);
         RoomsEditVm PrepareVmForEdit(int id);
+        RoomsCreateVm PrepareVmForCreate();
         
         // baza danych
         ICollection<RoomEntity> GetAll();
+        ICollection<RoomEntity> GetAllByBuildingId(int buildingId);
         RoomEntity GetOne(int id);
         
         // co zwraca? nazwa? (parametry?)
