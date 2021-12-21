@@ -1,4 +1,5 @@
 ﻿using CT.Biuromat.Web.Areas.Administration.Services;
+using CT.Biuromat.Web.Areas.Administration.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CT.Biuromat.Web.Areas.Administration.Controllers
@@ -16,31 +17,49 @@ namespace CT.Biuromat.Web.Areas.Administration.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var model = _roomsService.PrepareVmForIndex();
+            return View(model);
         }
         
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View(new RoomsCreateVm());
+        }
+        
+        [HttpPost] 
+        public IActionResult Create(RoomsCreateVm model)
+        {
+            _roomsService.AddToDatabase(model);
+            return RedirectToAction(nameof(Index));
         }
         
         [HttpGet]
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            return View();
+            var model = _roomsService.PrepareVmForDetails(id);
+            return View(model);
         }
         
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            var model = _roomsService.PrepareVmForEdit(id);
+            return View(model);
+        }
+        
+        [HttpPost]
+        public IActionResult Edit(RoomsEditVm model)
+        {
+            _roomsService.UpdateRoom(model);
+            return RedirectToAction(nameof(Index));
         }
         
         [HttpGet]
-        public IActionResult Remove()
+        public IActionResult Remove(int id)
         {
-            return View();
+            _roomsService.DeleteRoom(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

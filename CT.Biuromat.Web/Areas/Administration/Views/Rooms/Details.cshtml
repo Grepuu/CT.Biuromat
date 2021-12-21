@@ -1,6 +1,44 @@
-﻿
+﻿@model RoomsDetailsVm
 @{
     ViewBag.Title = "title";
 }
 
-<h2>title</h2>
+<a asp-action="Index">
+    wróć do listy pokoi
+</a>
+<br/>
+<a asp-action="Edit" asp-route-id="@Model.Room.Id">
+    edytuj dane
+</a>
+<br/>
+<a asp-action="Remove" asp-route-id="@Model.Room.Id">
+    usuwanie miękkie
+</a>
+<h2>
+    Pokój: @Model.Room.Name
+</h2>
+
+<p>
+    <strong>
+        Nazwa:
+    </strong>
+    @Model.Room.Name
+</p>
+<p>
+    <strong>
+        Kod dostępu:
+    </strong>
+    @Model.Room.AccessCode
+</p>
+<p>
+    <strong>
+        Data utworzenia: 
+    </strong>
+    @Model.Room.CreatedAt
+</p>
+<p>
+    <strong>
+        Ostatnia zmiania:
+    </strong>
+    @Model.Room.UpdatedAt
+</p>
